@@ -85,8 +85,7 @@ export default function Services() {
             ]}
           />
         </div>
-
-        </section>
+      </section>
     </Layout>
   );
 }
