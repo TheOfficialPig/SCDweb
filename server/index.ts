@@ -44,6 +44,7 @@ export function createServer() {
           path,
           err && err.stack ? err.stack : err,
         );
+        console.error(new Error().stack);
         return app;
       }
     };
