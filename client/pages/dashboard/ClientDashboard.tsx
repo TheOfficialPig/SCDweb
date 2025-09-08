@@ -18,12 +18,12 @@ export default function ClientDashboard() {
           <div className="rounded-xl border p-5">
             <div className="text-sm text-muted-foreground">Invoices</div>
             <div className="mt-1 text-xl font-semibold">0 unpaid</div>
-            <Button asChild variant="secondary" className="mt-4"><Link to="/products">Shop Products</Link></Button>
+            <Button asChild variant="secondary" className="mt-4"><Link to="/services">View Services</Link></Button>
           </div>
           <div className="rounded-xl border p-5">
             <div className="text-sm text-muted-foreground">Rewards</div>
             <div className="mt-1 text-xl font-semibold">Join our membership</div>
-            <Button asChild variant="outline" className="mt-4"><Link to="/products">View Memberships</Link></Button>
+            <Button asChild variant="outline" className="mt-4"><Link to="/services">View Memberships</Link></Button>
           </div>
         </div>
       </section>
