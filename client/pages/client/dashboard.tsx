@@ -1,11 +1,11 @@
-import Layout from "@/components/layout/Layout";
+import ClientDashboardLayout from "@/components/layout/ClientDashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 
 export default function ClientDashboardOverview() {
   const { user } = useAuth();
   return (
-    <Layout>
+    <ClientDashboardLayout>
       <section className="container mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold">Welcome back, {user?.name}</h1>
         <p className="mt-2 text-muted-foreground">Overview • Next appointment • Invoices • Status updates</p>
@@ -34,6 +34,6 @@ export default function ClientDashboardOverview() {
           <Link to="/dashboard/payments" className="rounded-lg border p-4 text-center">Payments & Invoices</Link>
         </div>
       </section>
-    </Layout>
+    </ClientDashboardLayout>
   );
 }
