@@ -8,7 +8,8 @@ export default function Footer() {
         <div>
           <div className="mb-2 text-lg font-bold">{SITE.name}</div>
           <p className="text-sm text-muted-foreground">
-            Premium mobile auto detailing serving {SITE.city}, Cleburne, and Burleson. Shine that lasts.
+            Premium mobile auto detailing serving {SITE.city}, Cleburne, and
+            Burleson. Shine that lasts.
           </p>
         </div>
         <div className="text-sm">

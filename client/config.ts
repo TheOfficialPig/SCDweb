@@ -21,13 +21,15 @@ export const SERVICES = [
   {
     id: "interior",
     name: "Interior Detail",
-    description: "Complete interior vacuum, wipe-down, and fabric/leather treatment.",
+    description:
+      "Complete interior vacuum, wipe-down, and fabric/leather treatment.",
     startingPrice: 149,
   },
   {
     id: "exterior",
     name: "Exterior Detail",
-    description: "Hand wash, clay bar, polish, and protectant for exterior surfaces.",
+    description:
+      "Hand wash, clay bar, polish, and protectant for exterior surfaces.",
     startingPrice: 129,
   },
   {

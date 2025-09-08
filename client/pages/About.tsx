@@ -14,8 +14,9 @@ export default function About() {
           <h1 className="text-3xl font-bold md:text-4xl">About {SITE.name}</h1>
           <p className="mt-4 text-muted-foreground">
             We started {SITE.name} to bring professional-grade detailing to{" "}
-            {SITE.city} and the surrounding communities (Joshua, Cleburne, and Burleson) with convenience and care. Our team treats every car
-            like our own, using the best tools and techniques to deliver lasting
+            {SITE.city} and the surrounding communities (Joshua, Cleburne, and
+            Burleson) with convenience and care. Our team treats every car like
+            our own, using the best tools and techniques to deliver lasting
             results.
           </p>
           <p className="mt-2 text-muted-foreground">
