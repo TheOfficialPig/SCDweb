@@ -22,7 +22,6 @@ export function createServer() {
   app.get("/api/demo", handleDemo);
 
   // Public APIs
-  app.get("/api/products", listProducts);
   app.post("/api/quote", createQuote);
   app.get("/api/quote/ping", pingQuote);
 
