@@ -66,12 +66,7 @@ export default function Services() {
             name="Exterior Detail"
             price="$49"
             img="https://images.unsplash.com/photo-1536520002442-39764a41e37c?q=80&w=1600&auto=format&fit=crop"
-            features={[
-              "Foam wash",
-              "Tire Wash",
-              "Window Cleaning",
-              "",
-            ]}
+            features={["Foam wash", "Tire Wash", "Window Cleaning", ""]}
           />
           <Package
             name="Full Detail"
