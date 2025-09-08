@@ -27,9 +27,11 @@ export default function Login() {
     if (!email) return alert("Please enter your Gmail address");
     setLoading(true);
     // staff flow: magic login if staff exists
+    console.log('[client.login] submitting', { email, role });
     if (role === "staff") {
       const res = await login({ email, role: "staff" });
       setLoading(false);
+      console.log('[client.login] response', res);
       if (!res.ok) return alert(res.error || "Unable to sign in as staff");
       navigate("/staff");
       return;
@@ -37,6 +39,7 @@ export default function Login() {
 
     // client flow: check and login
     const attempt = await login({ email, password, role: "client" });
+    console.log('[client.login] client response', attempt);
     setLoading(false);
     if (attempt.ok) {
       navigate("/dashboard");
