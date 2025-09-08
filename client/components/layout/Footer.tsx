@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <div className="mb-2 text-lg font-bold">{SITE.name}</div>
           <p className="text-sm text-muted-foreground">
-            Premium mobile auto detailing in {SITE.city}. Shine that lasts.
+            Premium mobile auto detailing serving {SITE.city}, Cleburne, and Burleson. Shine that lasts.
           </p>
         </div>
         <div className="text-sm">
@@ -41,10 +41,15 @@ export default function Footer() {
               <p>Add-ons</p>
             </li>
           </ul>
+          <div className="mt-4">
+            <div className="mb-2 font-semibold">Contact</div>
+            <div className="text-muted-foreground">Phone: {SITE.phone}</div>
+            <div className="text-muted-foreground">Email: {SITE.email}</div>
+          </div>
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © 2025 Supreme Clean Detailing . All rights reserved.
+        © 2025 Supreme Clean Detailing. All rights reserved.
       </div>
     </footer>
   );
