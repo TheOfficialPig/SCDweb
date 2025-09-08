@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { ApiList, Product } from "@shared/api";
-import { db } from "../data/store";
+import { db } from "../data/store.js";
 
 export const listProducts: RequestHandler = (_req, res) => {
   const active = db.products.filter((p) => p.active);
