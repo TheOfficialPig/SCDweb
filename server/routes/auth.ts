@@ -57,7 +57,11 @@ export const login: RequestHandler = (req, res) => {
       console.log("[auth.login] staff not found in db.staff", emailLower, db.staff.map(s=>s.email));
       return res.status(403).json({ error: "Staff not registered" });
     }
-    // allow login without password for staff for now (magic login)
+    // if staff has passwordHash require password
+    if (staff.passwordHash) {
+      if (!password) return res.status(400).json({ error: "Password required for staff" });
+      if (staff.passwordHash !== hash(password)) return res.status(403).json({ error: "Invalid credentials" });
+    }
     return res.json({ ok: true, user: { id: staff.id, name: staff.name, email: staff.email, role: staff.role } });
   }
 
