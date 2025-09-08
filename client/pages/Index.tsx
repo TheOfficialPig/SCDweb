@@ -89,7 +89,7 @@ export default function Index() {
           <div>
             <h3 className="text-2xl font-bold md:text-3xl">Showroom results, every time</h3>
             <p className="mt-2 text-muted-foreground">
-              Trusted by car enthusiasts and families alike. We bring professional-grade products and meticulous techniques to every service.
+              Trusted by car enthusiasts and families alike. We bring professional-grade techniques and meticulous care to every service.
             </p>
             <div className="mt-6 flex gap-3">
               <Button asChild variant="secondary"><Link to="/gallery">View Gallery</Link></Button>
