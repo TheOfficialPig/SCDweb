@@ -8,7 +8,11 @@ export const createQuote: RequestHandler = (req, res) => {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
-  const client = createClient({ name: body.name, email: body.email, phone: body.phone });
+  const client = createClient({
+    name: body.name,
+    email: body.email,
+    phone: body.phone,
+  });
   const vehicle = addVehicle(client.id, {
     make: body.vehicleMake,
     model: body.vehicleModel,

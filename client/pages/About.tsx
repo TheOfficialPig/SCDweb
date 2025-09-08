@@ -13,10 +13,15 @@ export default function About() {
         <div>
           <h1 className="text-3xl font-bold md:text-4xl">About {SITE.name}</h1>
           <p className="mt-4 text-muted-foreground">
-            We started {SITE.name} to bring professional-grade detailing to {SITE.city} with convenience and care. Our team treats every car like our own, using the best tools and techniques to deliver lasting results.
+            We started {SITE.name} to bring professional-grade detailing to{" "}
+            {SITE.city} with convenience and care. Our team treats every car
+            like our own, using the best tools and techniques to deliver lasting
+            results.
           </p>
           <p className="mt-2 text-muted-foreground">
-            From daily drivers to exotics, we tailor every service to your needs. Our mission is simple: deliver showroom-level results with honesty and consistency.
+            From daily drivers to exotics, we tailor every service to your
+            needs. Our mission is simple: deliver showroom-level results with
+            honesty and consistency.
           </p>
         </div>
       </section>

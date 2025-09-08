@@ -8,13 +8,24 @@ export default function ClientDashboardOverview() {
     <ClientDashboardLayout>
       <section className="container mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold">Welcome back, {user?.name}</h1>
-        <p className="mt-2 text-muted-foreground">Overview • Next appointment • Invoices • Status updates</p>
+        <p className="mt-2 text-muted-foreground">
+          Overview • Next appointment • Invoices • Status updates
+        </p>
 
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
           <div className="rounded-xl border p-5">
-            <div className="text-sm text-muted-foreground">Next Appointment</div>
-            <div className="mt-1 text-xl font-semibold">No appointment scheduled</div>
-            <Link to="/contact" className="mt-4 inline-block text-sm text-primary">Book a Service</Link>
+            <div className="text-sm text-muted-foreground">
+              Next Appointment
+            </div>
+            <div className="mt-1 text-xl font-semibold">
+              No appointment scheduled
+            </div>
+            <Link
+              to="/contact"
+              className="mt-4 inline-block text-sm text-primary"
+            >
+              Book a Service
+            </Link>
           </div>
 
           <div className="rounded-xl border p-5">
@@ -29,9 +40,24 @@ export default function ClientDashboardOverview() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-3">
-          <Link to="/dashboard/vehicles" className="rounded-lg border p-4 text-center">My Vehicles</Link>
-          <Link to="/dashboard/jobs" className="rounded-lg border p-4 text-center">My Jobs</Link>
-          <Link to="/dashboard/payments" className="rounded-lg border p-4 text-center">Payments & Invoices</Link>
+          <Link
+            to="/dashboard/vehicles"
+            className="rounded-lg border p-4 text-center"
+          >
+            My Vehicles
+          </Link>
+          <Link
+            to="/dashboard/jobs"
+            className="rounded-lg border p-4 text-center"
+          >
+            My Jobs
+          </Link>
+          <Link
+            to="/dashboard/payments"
+            className="rounded-lg border p-4 text-center"
+          >
+            Payments & Invoices
+          </Link>
         </div>
       </section>
     </ClientDashboardLayout>

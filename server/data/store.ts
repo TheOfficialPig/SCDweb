@@ -1,4 +1,13 @@
-import { Client, ID, Invoice, Job, Order, Product, Staff, Vehicle } from "@shared/api";
+import {
+  Client,
+  ID,
+  Invoice,
+  Job,
+  Order,
+  Product,
+  Staff,
+  Vehicle,
+} from "@shared/api";
 
 function id(prefix: string = "id"): ID {
   return `${prefix}_${Math.random().toString(36).slice(2, 10)}`;

@@ -8,11 +8,19 @@ function hash(pw: string) {
 }
 
 export const createStaff: RequestHandler = (req, res) => {
-  const { name, email, role, password } = req.body as { name: string; email: string; role?: string; password?: string };
-  if (!name || !email) return res.status(400).json({ error: "name and email required" });
+  const { name, email, role, password } = req.body as {
+    name: string;
+    email: string;
+    role?: string;
+    password?: string;
+  };
+  if (!name || !email)
+    return res.status(400).json({ error: "name and email required" });
   const emailLower = email.toLowerCase();
-  if (!emailLower.endsWith("@gmail.com")) return res.status(400).json({ error: "Staff must use Gmail address" });
-  if (db.staff.find((s) => s.email.toLowerCase() === emailLower)) return res.status(400).json({ error: "Staff already exists" });
+  if (!emailLower.endsWith("@gmail.com"))
+    return res.status(400).json({ error: "Staff must use Gmail address" });
+  if (db.staff.find((s) => s.email.toLowerCase() === emailLower))
+    return res.status(400).json({ error: "Staff already exists" });
   const staff: Staff & { passwordHash?: string } = {
     id: `staff_${Math.random().toString(36).slice(2, 9)}`,
     name,
@@ -26,15 +34,28 @@ export const createStaff: RequestHandler = (req, res) => {
 };
 
 export const createClientAdmin: RequestHandler = (req, res) => {
-  const { name, email, phone } = req.body as { name: string; email: string; phone?: string };
-  if (!name || !email) return res.status(400).json({ error: "name and email required" });
+  const { name, email, phone } = req.body as {
+    name: string;
+    email: string;
+    phone?: string;
+  };
+  if (!name || !email)
+    return res.status(400).json({ error: "name and email required" });
   const client = createClient({ name, email, phone: phone || "" });
   res.status(201).json({ ok: true, client });
 };
 
 export const createJobAdmin: RequestHandler = (req, res) => {
-  const { clientId, vehicle, serviceType, preferredDate } = req.body as { clientId: string; vehicle: any; serviceType: string; preferredDate?: string };
-  if (!clientId || !vehicle || !serviceType) return res.status(400).json({ error: "clientId, vehicle, serviceType required" });
+  const { clientId, vehicle, serviceType, preferredDate } = req.body as {
+    clientId: string;
+    vehicle: any;
+    serviceType: string;
+    preferredDate?: string;
+  };
+  if (!clientId || !vehicle || !serviceType)
+    return res
+      .status(400)
+      .json({ error: "clientId, vehicle, serviceType required" });
   try {
     const job = createJob({ clientId, vehicle, serviceType, preferredDate });
     res.status(201).json({ ok: true, job });
@@ -44,10 +65,15 @@ export const createJobAdmin: RequestHandler = (req, res) => {
 };
 
 export const createInvoiceAdmin: RequestHandler = (req, res) => {
-  const { clientId, jobId, amount } = req.body as { clientId: string; jobId?: string; amount: number };
-  if (!clientId || !amount) return res.status(400).json({ error: "clientId and amount required" });
+  const { clientId, jobId, amount } = req.body as {
+    clientId: string;
+    jobId?: string;
+    amount: number;
+  };
+  if (!clientId || !amount)
+    return res.status(400).json({ error: "clientId and amount required" });
   const invoice: Invoice = {
-    id: `inv_${Math.random().toString(36).slice(2,9)}`,
+    id: `inv_${Math.random().toString(36).slice(2, 9)}`,
     clientId,
     jobId: jobId || null,
     orderId: null,

@@ -15,11 +15,18 @@ export default function Gallery() {
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold md:text-4xl">Before & After</h1>
-          <p className="mt-2 text-muted-foreground">Real results from recent client work</p>
+          <p className="mt-2 text-muted-foreground">
+            Real results from recent client work
+          </p>
         </div>
         <div className="columns-1 gap-4 md:columns-2 lg:columns-3">
           {images.map((src) => (
-            <img key={src} src={src} alt="Detailing work" className="mb-4 w-full break-inside-avoid rounded-xl shadow" />
+            <img
+              key={src}
+              src={src}
+              alt="Detailing work"
+              className="mb-4 w-full break-inside-avoid rounded-xl shadow"
+            />
           ))}
         </div>
       </section>

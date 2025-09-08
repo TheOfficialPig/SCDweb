@@ -14,7 +14,11 @@ const STORAGE = "auth.user.v1";
 
 const AuthCtx = createContext<{
   user: User | null;
-  login: (payload: { email: string; password?: string; role?: string }) => Promise<{ ok: boolean; needsPassword?: boolean; error?: string }>;
+  login: (payload: {
+    email: string;
+    password?: string;
+    role?: string;
+  }) => Promise<{ ok: boolean; needsPassword?: boolean; error?: string }>;
   logout: () => void;
   register: (payload: { name?: string; email: string }) => Promise<any>;
 } | null>(null);
@@ -36,19 +40,37 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     else localStorage.removeItem(STORAGE);
   }, [user]);
 
-  async function login(payload: { email: string; password?: string; role?: string }) {
+  async function login(payload: {
+    email: string;
+    password?: string;
+    role?: string;
+  }) {
     try {
-      const res = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
       const data = await res.json();
       if (!res.ok) return { ok: false, error: data?.error || "Login failed" };
       if (data.needsPassword) return { ok: false, needsPassword: true };
       if (data.user) {
-        setUser({ id: data.user.id, name: data.user.name, email: data.user.email, role: data.user.role });
+        setUser({
+          id: data.user.id,
+          name: data.user.name,
+          email: data.user.email,
+          role: data.user.role,
+        });
         return { ok: true };
       }
       // for staff magic login
       if (data.ok && data.user) {
-        setUser({ id: data.user.id, name: data.user.name, email: data.user.email, role: data.user.role });
+        setUser({
+          id: data.user.id,
+          name: data.user.name,
+          email: data.user.email,
+          role: data.user.role,
+        });
         return { ok: true };
       }
       return { ok: false, error: "Unknown response" };
@@ -58,7 +80,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   async function register(payload: { name?: string; email: string }) {
-    const res = await fetch("/api/auth/register", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
     return res.json();
   }
 
@@ -67,7 +93,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     navigate("/");
   }
 
-  return <AuthCtx.Provider value={{ user, login, logout, register }}>{children}</AuthCtx.Provider>;
+  return (
+    <AuthCtx.Provider value={{ user, login, logout, register }}>
+      {children}
+    </AuthCtx.Provider>
+  );
 }
 
 export function useAuth() {
@@ -76,7 +106,13 @@ export function useAuth() {
   return ctx;
 }
 
-export function RequireAuth({ children, role }: { children: React.ReactNode; role?: string }) {
+export function RequireAuth({
+  children,
+  role,
+}: {
+  children: React.ReactNode;
+  role?: string;
+}) {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -85,13 +121,28 @@ export function RequireAuth({ children, role }: { children: React.ReactNode; rol
       navigate("/login", { replace: true });
       return;
     }
-    if (role && user.role && user.role !== role && !(user.role === "owner" && role === "staff")) {
+    if (
+      role &&
+      user.role &&
+      user.role !== role &&
+      !(user.role === "owner" && role === "staff")
+    ) {
       // redirect to appropriate home
-      navigate(user.role === "owner" || user.role === "staff" ? "/staff" : "/dashboard", { replace: true });
+      navigate(
+        user.role === "owner" || user.role === "staff"
+          ? "/staff"
+          : "/dashboard",
+        { replace: true },
+      );
     }
   }, [user, role, navigate]);
 
   if (!user) return null;
-  if (role && user.role !== role && !(user.role === "owner" && role === "staff")) return null;
+  if (
+    role &&
+    user.role !== role &&
+    !(user.role === "owner" && role === "staff")
+  )
+    return null;
   return <>{children}</>;
 }

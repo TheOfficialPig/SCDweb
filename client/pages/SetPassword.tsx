@@ -16,7 +16,11 @@ export default function SetPassword() {
     if (!email) return alert("Missing email");
     if (!password) return alert("Enter a password");
     if (password !== confirm) return alert("Passwords do not match");
-    const res = await fetch("/api/auth/set-password", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) });
+    const res = await fetch("/api/auth/set-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
     if (res.ok) {
       alert("Password set. You can now sign in.");
       navigate("/login");
@@ -31,7 +35,9 @@ export default function SetPassword() {
       <section className="container mx-auto px-4 py-12">
         <div className="mx-auto max-w-md">
           <h1 className="text-2xl font-bold">Set your password</h1>
-          <p className="mt-2 text-muted-foreground">Set a password to secure your account for future logins.</p>
+          <p className="mt-2 text-muted-foreground">
+            Set a password to secure your account for future logins.
+          </p>
 
           <form onSubmit={submit} className="mt-6 grid gap-3">
             <div>
@@ -40,11 +46,19 @@ export default function SetPassword() {
             </div>
             <div>
               <label className="text-sm">Password</label>
-              <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             <div>
               <label className="text-sm">Confirm Password</label>
-              <Input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)} />
+              <Input
+                type="password"
+                value={confirm}
+                onChange={(e) => setConfirm(e.target.value)}
+              />
             </div>
 
             <Button type="submit">Save Password</Button>

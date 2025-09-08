@@ -60,21 +60,112 @@ const App = () => (
                 </RequireAuth>
               }
             />
-            <Route path="/dashboard/vehicles" element={<RequireAuth role="client"><MyVehicles /></RequireAuth>} />
-            <Route path="/dashboard/jobs" element={<RequireAuth role="client"><MyJobs /></RequireAuth>} />
-            <Route path="/dashboard/payments" element={<RequireAuth role="client"><PaymentsAndInvoices /></RequireAuth>} />
-            <Route path="/dashboard/rewards" element={<RequireAuth role="client"><Rewards /></RequireAuth>} />
-            <Route path="/dashboard/support" element={<RequireAuth role="client"><SupportMessages /></RequireAuth>} />
+            <Route
+              path="/dashboard/vehicles"
+              element={
+                <RequireAuth role="client">
+                  <MyVehicles />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/dashboard/jobs"
+              element={
+                <RequireAuth role="client">
+                  <MyJobs />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/dashboard/payments"
+              element={
+                <RequireAuth role="client">
+                  <PaymentsAndInvoices />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/dashboard/rewards"
+              element={
+                <RequireAuth role="client">
+                  <Rewards />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/dashboard/support"
+              element={
+                <RequireAuth role="client">
+                  <SupportMessages />
+                </RequireAuth>
+              }
+            />
 
             {/* Staff protected routes */}
-            <Route path="/staff" element={<RequireAuth role="staff"><StaffOverview /></RequireAuth>} />
-            <Route path="/staff/clients" element={<RequireAuth role="staff"><StaffClients /></RequireAuth>} />
-            <Route path="/staff/jobs" element={<RequireAuth role="staff"><StaffJobs /></RequireAuth>} />
-            <Route path="/staff/invoices" element={<RequireAuth role="staff"><StaffInvoices /></RequireAuth>} />
-            <Route path="/staff/services" element={<RequireAuth role="staff"><StaffProducts /></RequireAuth>} />
-            <Route path="/staff/reports" element={<RequireAuth role="staff"><StaffReports /></RequireAuth>} />
-            <Route path="/staff/staff-management" element={<RequireAuth role="staff"><StaffManagement /></RequireAuth>} />
-            <Route path="/staff/messaging" element={<RequireAuth role="staff"><StaffMessaging /></RequireAuth>} />
+            <Route
+              path="/staff"
+              element={
+                <RequireAuth role="staff">
+                  <StaffOverview />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/staff/clients"
+              element={
+                <RequireAuth role="staff">
+                  <StaffClients />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/staff/jobs"
+              element={
+                <RequireAuth role="staff">
+                  <StaffJobs />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/staff/invoices"
+              element={
+                <RequireAuth role="staff">
+                  <StaffInvoices />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/staff/services"
+              element={
+                <RequireAuth role="staff">
+                  <StaffProducts />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/staff/reports"
+              element={
+                <RequireAuth role="staff">
+                  <StaffReports />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/staff/staff-management"
+              element={
+                <RequireAuth role="staff">
+                  <StaffManagement />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/staff/messaging"
+              element={
+                <RequireAuth role="staff">
+                  <StaffMessaging />
+                </RequireAuth>
+              }
+            />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

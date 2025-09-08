@@ -6,7 +6,12 @@
 export type ID = string;
 
 // Products / Store
-export type ProductCategory = "cleaners" | "wax" | "accessories" | "gift" | "membership";
+export type ProductCategory =
+  | "cleaners"
+  | "wax"
+  | "accessories"
+  | "gift"
+  | "membership";
 export interface Product {
   id: ID;
   name: string;

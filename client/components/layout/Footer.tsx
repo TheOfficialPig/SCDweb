@@ -14,9 +14,21 @@ export default function Footer() {
         <div className="text-sm">
           <div className="mb-3 font-semibold">Company</div>
           <ul className="space-y-2 text-muted-foreground">
-            <li><Link className="hover:text-foreground" to="/about">About Us</Link></li>
-            <li><Link className="hover:text-foreground" to="/gallery">Gallery</Link></li>
-            <li><Link className="hover:text-foreground" to="/contact">Contact</Link></li>
+            <li>
+              <Link className="hover:text-foreground" to="/about">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-foreground" to="/gallery">
+                Gallery
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-foreground" to="/contact">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="text-sm">
@@ -25,7 +37,9 @@ export default function Footer() {
             <li>Interior Detailing</li>
             <li>Exterior Detailing</li>
             <li>Full Detail</li>
-            <li><p>Add-ons</p></li>
+            <li>
+              <p>Add-ons</p>
+            </li>
           </ul>
         </div>
       </div>
