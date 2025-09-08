@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { ApiList, Client, Job, Order } from "@shared/api";
-import { db } from "../data/store";
+import { db } from "../data/store.js";
 
 export const listClients: RequestHandler = (_req, res) => {
   const payload: ApiList<Client> = { items: db.clients };
