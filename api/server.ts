@@ -11,10 +11,10 @@ async function ensureHandler() {
   const mod = await import("../dist/server/node-build.mjs");
 
   // Possible shapes:
-  // - export function createServer() { return app }
-  // - export default function createServer() { return app }
-  // - export default app (Express instance)
-  // - export const app = express();
+  export function createServer() { return app }
+  export default function createServer() { return app }
+  export default app (Express instance)
+  export const app = express();
 
   let createServer: any = undefined;
 
