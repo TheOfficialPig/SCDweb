@@ -20,15 +20,16 @@ const AuthCtx = createContext<{
 } | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
+  // Initialize user synchronously from localStorage to avoid redirect flashes
+  const [user, setUser] = useState<User | null>(() => {
     try {
       const raw = localStorage.getItem(STORAGE);
-      if (raw) setUser(JSON.parse(raw));
-    } catch {}
-  }, []);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  });
 
   useEffect(() => {
     if (user) localStorage.setItem(STORAGE, JSON.stringify(user));
