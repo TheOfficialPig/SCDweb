@@ -1,11 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { handleDemo } from "./routes/demo";
-import { createQuote, pingQuote } from "./routes/quote";
-import { createOrder } from "./routes/orders";
-import { listClients, listJobs, listOrders } from "./routes/admin";
-import { importAuthRoutes } from "./routes/_auth_loader";
+import { handleDemo } from "./routes/demo.js";
+import { createQuote, pingQuote } from "./routes/quote.js";
+import { createOrder } from "./routes/orders.js";
+import { listClients, listJobs, listOrders } from "./routes/admin.js";
+import { importAuthRoutes } from "./routes/_auth_loader.js";
 
 export function createServer() {
   const app = express();
