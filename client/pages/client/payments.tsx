@@ -1,5 +1,3 @@
-import Layout from "@/components/layout/Layout";
-
 import ClientDashboardLayout from "@/components/layout/ClientDashboardLayout";
 
 export default function PaymentsAndInvoices() {
