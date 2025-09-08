@@ -20,7 +20,10 @@ function Package({
       <CardHeader>
         <CardTitle className="flex items-baseline justify-between">
           <span>{name}</span>
-          <span className="text-xl font-bold">Starting at {price}</span>
+          <span className="text-xl font-bold">
+            Starting at
+            <p>{price}</p>
+          </span>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -50,18 +53,18 @@ export default function Services() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Package
             name="Interior Detail"
-            price="$149"
+            price="$49"
             img="https://images.unsplash.com/photo-1616207132229-3d1f2449dd88?q=80&w=1600&auto=format&fit=crop"
             features={[
               "Vacuum & shampoo",
               "Leather clean & condition",
-              "Windows & mirrors",
-              "Ozone odor treatment",
+              "Windows",
+              "odor treatment",
             ]}
           />
           <Package
             name="Exterior Detail"
-            price="$129"
+            price="$49"
             img="https://images.unsplash.com/photo-1536520002442-39764a41e37c?q=80&w=1600&auto=format&fit=crop"
             features={[
               "Foam wash & decon",
@@ -72,7 +75,7 @@ export default function Services() {
           />
           <Package
             name="Full Detail"
-            price="$249"
+            price="$100"
             img="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop"
             features={[
               "Interior + Exterior",
@@ -83,26 +86,7 @@ export default function Services() {
           />
         </div>
 
-        <div className="mt-12">
-          <h2 className="text-2xl font-semibold">Upsells & Add-ons</h2>
-          <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div className="rounded-lg border p-4">
-              <div className="font-medium">Ceramic Coating</div>
-              <div className="text-sm text-muted-foreground">
-                From $399 • 2–5 year protection
-              </div>
-            </div>
-            <div className="rounded-lg border p-4">
-              <div className="font-medium">Engine Bay Detail</div>
-              <div className="text-sm text-muted-foreground">From $59</div>
-            </div>
-            <div className="rounded-lg border p-4">
-              <div className="font-medium">Headlight Restoration</div>
-              <div className="text-sm text-muted-foreground">From $79</div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </Layout>
   );
 }
