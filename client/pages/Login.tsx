@@ -92,6 +92,23 @@ export default function Login() {
 
             <Button type="submit" disabled={loading}>{loading ? "Signing in..." : "Sign in"}</Button>
           </form>
+
+          {/* Dev helper: quick owner login if ?dev=owner is present */}
+          {searchParams.get("dev") === "owner" && (
+            <div className="mt-4">
+              <div className="text-sm text-muted-foreground">Dev helper</div>
+              <button
+                className="mt-2 inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground"
+                onClick={() => {
+                  const owner = { id: "owner_dev", name: "Gage Garton", email: "GageGarton999@gmail.com", role: "owner" };
+                  localStorage.setItem("auth.user.v1", JSON.stringify(owner));
+                  window.location.href = "/staff";
+                }}
+              >
+                Dev: Login as Owner
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </Layout>
