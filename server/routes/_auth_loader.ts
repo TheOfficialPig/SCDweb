@@ -1,11 +1,11 @@
 import { Express } from "express";
-import { checkEmail, register, setPassword, login } from "./auth";
+import { checkEmail, register, setPassword, login } from "./auth.js";
 import {
   createStaff,
   createClientAdmin,
   createJobAdmin,
   createInvoiceAdmin,
-} from "./admin_actions";
+} from "./admin_actions.js";
 
 export function importAuthRoutes(app: Express) {
   app.post("/api/auth/check", checkEmail);
