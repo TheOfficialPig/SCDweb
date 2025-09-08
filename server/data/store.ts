@@ -80,15 +80,15 @@ function seed() {
     db.staff.push(
       {
         id: id("staff"),
-        name: "Alex Rivera",
-        email: "alex@example.com",
+        name: "Gage Garton",
+        email: "GageGarton999@gmail.com",
         role: "owner",
         createdAt: new Date().toISOString(),
       },
       {
         id: id("staff"),
         name: "Sam Lee",
-        email: "sam@example.com",
+        email: "sam.lee@gmail.com",
         role: "tech",
         createdAt: new Date().toISOString(),
       },
