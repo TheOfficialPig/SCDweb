@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import StaffDashboardLayout from "@/components/layout/StaffDashboardLayout";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -40,7 +41,7 @@ export default function StaffDashboardOverview() {
   }
 
   return (
-    <Layout>
+    <StaffDashboardLayout>
       <section className="container mx-auto grid grid-cols-1 gap-8 px-4 py-10 md:grid-cols-4">
         <aside className="order-2 md:order-1 md:col-span-1">
           <div className="sticky top-20 space-y-4">
@@ -155,6 +156,6 @@ export default function StaffDashboardOverview() {
           </div>
         </main>
       </section>
-    </Layout>
+    </StaffDashboardLayout>
   );
 }
