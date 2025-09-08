@@ -1,4 +1,3 @@
-import Layout from "@/components/layout/Layout";
 import ClientDashboardLayout from "@/components/layout/ClientDashboardLayout";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
