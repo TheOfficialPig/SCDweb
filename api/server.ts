@@ -34,7 +34,9 @@ async function ensureHandler() {
   if (!createServer) {
     // attach module keys for debugging
     const keys = Object.keys(mod).join(",");
-    throw new Error(`Built server bundle does not export a createServer function. Available exports: ${keys}`);
+    throw new Error(
+      `Built server bundle does not export a createServer function. Available exports: ${keys}`,
+    );
   }
 
   const app = await createServer();
