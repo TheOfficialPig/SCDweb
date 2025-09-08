@@ -25,12 +25,12 @@ export default function Footer() {
             <li>Interior Detailing</li>
             <li>Exterior Detailing</li>
             <li>Full Detail</li>
-            <li>Add-ons & Coatings</li>
+            <li><p>Add-ons</p></li>
           </ul>
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+        © 2025 Supreme Clean Detailing . All rights reserved.
       </div>
     </footer>
   );
