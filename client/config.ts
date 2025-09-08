@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "GlossWorks Detailing",
+  name: "Supreme Clean Detailing",
   city: "Austin",
   tagline: "Professional Auto Detailing",
 };
