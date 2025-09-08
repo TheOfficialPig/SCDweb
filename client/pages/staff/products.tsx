@@ -1,5 +1,3 @@
-import Layout from "@/components/layout/Layout";
-
 import StaffDashboardLayout from "@/components/layout/StaffDashboardLayout";
 
 export default function StaffProducts() {
