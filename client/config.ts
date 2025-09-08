@@ -1,7 +1,9 @@
 export const SITE = {
   name: "Supreme Clean Detailing",
-  city: "Austin",
+  city: "Joshua",
   tagline: "Professional Auto Detailing",
+  phone: "6822288120",
+  email: "SCDquotes@gmail.com",
 };
 
 export const NAV = [
