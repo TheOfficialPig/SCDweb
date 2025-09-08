@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { ApiOk, QuoteRequestPayload, QuoteResponse } from "@shared/api";
-import { addVehicle, createClient, createJob } from "../data/store";
+import { addVehicle, createClient, createJob } from "../data/store.js";
 
 export const createQuote: RequestHandler = (req, res) => {
   const body: QuoteRequestPayload = req.body;
