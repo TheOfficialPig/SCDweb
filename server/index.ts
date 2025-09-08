@@ -5,6 +5,7 @@ import { handleDemo } from "./routes/demo";
 import { createQuote, pingQuote } from "./routes/quote";
 import { createOrder } from "./routes/orders";
 import { listClients, listJobs, listOrders } from "./routes/admin";
+import { importAuthRoutes } from "./routes/_auth_loader";
 
 export function createServer() {
   const app = express();
