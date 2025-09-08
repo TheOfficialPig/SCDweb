@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import crypto from "crypto";
-import { db } from "../data/store";
+import { db } from "../data/store.js";
 
 function hash(pw: string) {
   return crypto.createHash("sha256").update(pw).digest("hex");
