@@ -101,7 +101,7 @@ const App = () => (
               }
             />
 
-            {/* Staff protected routes */}
+            {/* Staff protected route */}
             <Route
               path="/staff"
               element={
