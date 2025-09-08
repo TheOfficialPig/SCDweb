@@ -45,13 +45,18 @@ export const setPassword: RequestHandler = (req, res) => {
 
 export const login: RequestHandler = (req, res) => {
   const { email, password, role } = req.body as { email: string; password?: string; role?: string };
+  console.log("[auth.login] payload:", { email, role });
   if (!email) return res.status(400).json({ error: "Email required" });
   const emailLower = email.toLowerCase();
   // Staff access: only allow if email in db.staff and gmail
   if (role === "staff") {
+    console.log("[auth.login] staff login attempt for", emailLower);
     if (!emailLower.endsWith("@gmail.com")) return res.status(403).json({ error: "Staff must use Gmail" });
     const staff = db.staff.find((s) => s.email.toLowerCase() === emailLower);
-    if (!staff) return res.status(403).json({ error: "Staff not registered" });
+    if (!staff) {
+      console.log("[auth.login] staff not found in db.staff", emailLower, db.staff.map(s=>s.email));
+      return res.status(403).json({ error: "Staff not registered" });
+    }
     // allow login without password for staff for now (magic login)
     return res.json({ ok: true, user: { id: staff.id, name: staff.name, email: staff.email, role: staff.role } });
   }
