@@ -27,10 +27,13 @@ export default function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-background/90" />
         <div className="relative container mx-auto flex min-h-[75dvh] flex-col items-start justify-center px-4 py-24 text-white">
-          <span className="mb-3 inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">Mobile + Studio • {SITE.city}</span>
+          <span className="mb-3 inline-flex flex-col items-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">
+            <p className="m-0">Mobile •</p>
+            <p className="m-0">Joshua</p>
+          </span>
           <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
             Professional Auto Detailing in
-            <p className="mt-0">Joshua</p>
+            <div className="font-extrabold">Joshua</div>
           </h1>
           <p className="mt-4 max-w-2xl text-white/80">
             Interior, exterior, and full-detail packages. Ceramic coatings, engine bay, and premium add-ons. Book a free quote in minutes.
