@@ -25,6 +25,9 @@ export function createServer() {
   app.post("/api/quote", createQuote);
   app.get("/api/quote/ping", pingQuote);
 
+  // Auth
+  importAuthRoutes(app);
+
   // Checkout
   app.post("/api/orders", createOrder);
 
