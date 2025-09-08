@@ -13,6 +13,7 @@ import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import SetPassword from "./pages/SetPassword";
 
 import ClientDashboard from "./pages/client/dashboard";
 import MyVehicles from "./pages/client/vehicles";
