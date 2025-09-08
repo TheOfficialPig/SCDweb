@@ -1,24 +1,28 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-type Role = "client" | "staff" | null;
+type Role = "client" | "staff" | "owner";
 
 interface User {
   id: string;
   name: string;
-  role: Exclude<Role, null>;
+  email: string;
+  role: Role | string;
 }
 
 const STORAGE = "auth.user.v1";
 
 const AuthCtx = createContext<{
   user: User | null;
-  login: (payload: { name: string; role: Exclude<Role, null> }) => void;
+  login: (payload: { email: string; password?: string; role?: string }) => Promise<{ ok: boolean; needsPassword?: boolean; error?: string }>;
   logout: () => void;
+  register: (payload: { name?: string; email: string }) => Promise<any>;
 } | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE);
@@ -31,16 +35,38 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     else localStorage.removeItem(STORAGE);
   }, [user]);
 
-  function login(payload: { name: string; role: Exclude<Role, null> }) {
-    const u: User = { id: `user_${Math.random().toString(36).slice(2, 9)}`, name: payload.name, role: payload.role };
-    setUser(u);
+  async function login(payload: { email: string; password?: string; role?: string }) {
+    try {
+      const res = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      const data = await res.json();
+      if (!res.ok) return { ok: false, error: data?.error || "Login failed" };
+      if (data.needsPassword) return { ok: false, needsPassword: true };
+      if (data.user) {
+        setUser({ id: data.user.id, name: data.user.name, email: data.user.email, role: data.user.role });
+        return { ok: true };
+      }
+      // for staff magic login
+      if (data.ok && data.user) {
+        setUser({ id: data.user.id, name: data.user.name, email: data.user.email, role: data.user.role });
+        return { ok: true };
+      }
+      return { ok: false, error: "Unknown response" };
+    } catch (err: any) {
+      return { ok: false, error: err.message };
+    }
+  }
+
+  async function register(payload: { name?: string; email: string }) {
+    const res = await fetch("/api/auth/register", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    return res.json();
   }
 
   function logout() {
     setUser(null);
+    navigate("/");
   }
 
-  return <AuthCtx.Provider value={{ user, login, logout }}>{children}</AuthCtx.Provider>;
+  return <AuthCtx.Provider value={{ user, login, logout, register }}>{children}</AuthCtx.Provider>;
 }
 
 export function useAuth() {
@@ -49,7 +75,7 @@ export function useAuth() {
   return ctx;
 }
 
-export function RequireAuth({ children, role }: { children: React.ReactNode; role?: Exclude<Role, null> }) {
+export function RequireAuth({ children, role }: { children: React.ReactNode; role?: string }) {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -58,9 +84,9 @@ export function RequireAuth({ children, role }: { children: React.ReactNode; rol
       navigate("/login", { replace: true });
       return;
     }
-    if (role && user.role !== role) {
+    if (role && user.role && user.role !== role) {
       // redirect to appropriate home
-      navigate(user.role === "staff" ? "/staff" : "/dashboard", { replace: true });
+      navigate(user.role === "owner" || user.role === "staff" ? "/staff" : "/dashboard", { replace: true });
     }
   }, [user, role, navigate]);
 
