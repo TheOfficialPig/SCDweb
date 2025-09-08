@@ -13,6 +13,13 @@ export default function Login() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
+  // read role from query param to preselect
+  try {
+    const params = new URLSearchParams(location.search);
+    const qr = params.get("role");
+    if (qr === "staff" || qr === "client") setRole(qr);
+  } catch {}
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return alert("Please enter your Gmail address");
