@@ -60,7 +60,7 @@ export default function Index() {
           />
           <ServiceCard
             title="Exterior Detail"
-            desc="Foam wash, decon, polish, sealant for lasting shine."
+            desc="Foam wash, Tire Shine, Window Cleaning."
             icon={<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='size-5'><path fill='currentColor' d='M3 12a9 9 0 1 1 18 0z'/></svg>}
           />
           <ServiceCard
