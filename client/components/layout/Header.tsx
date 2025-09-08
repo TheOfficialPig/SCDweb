@@ -34,6 +34,14 @@ export default function Header() {
           <Button asChild size="sm" className="hidden md:inline-flex">
             <Link to="/contact">Book a Free Quote</Link>
           </Button>
+
+          <Button asChild variant="outline" size="sm" className="hidden md:inline-flex">
+            <Link to="/login?role=client">Client Login</Link>
+          </Button>
+          <Button asChild size="sm" className="hidden md:inline-flex">
+            <Link to="/login?role=staff">Staff Login</Link>
+          </Button>
+
           <Button asChild variant="outline" size="icon" className="md:hidden">
             <Link to="/contact">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
