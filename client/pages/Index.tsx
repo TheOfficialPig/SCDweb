@@ -65,12 +65,12 @@ export default function Index() {
           />
           <ServiceCard
             title="Full Detail"
-            desc="Complete inside & out restoration and protection."
+            desc="Complete inside & out Detailing."
             icon={<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='size-5'><path fill='currentColor' d='M12 2a10 10 0 1 0 0 20z'/></svg>}
           />
           <ServiceCard
             title="Add-ons"
-            desc="Ceramic coating, engine bay, headlight restore, pet hair."
+            desc="Oder remover, headlight restore, pet hair."
             icon={<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='size-5'><path fill='currentColor' d='M12 3v18M3 12h18'/></svg>}
           />
         </div>
