@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { ApiOk, Order, OrderItem, PaymentStatus } from "@shared/api";
-import { db } from "../data/store";
+import { db } from "../data/store.js";
 
 function calcOrder(items: OrderItem[]) {
   const subtotal = items.reduce((sum, i) => sum + i.unitPrice * i.quantity, 0);
