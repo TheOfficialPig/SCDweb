@@ -33,6 +33,7 @@ export function createServer() {
             path.startsWith(":/")
           ) {
             console.error("Skipping unsafe route registration:", path);
+            console.error(new Error().stack);
             return app;
           }
         }
