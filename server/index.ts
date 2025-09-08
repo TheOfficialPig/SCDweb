@@ -11,7 +11,15 @@ export function createServer() {
   const app = express();
 
   // Safety: wrap route registration methods to prevent crashes from malformed paths
-  const methodsToWrap = ["get", "post", "put", "delete", "patch", "use", "all"] as const;
+  const methodsToWrap = [
+    "get",
+    "post",
+    "put",
+    "delete",
+    "patch",
+    "use",
+    "all",
+  ] as const;
   for (const m of methodsToWrap) {
     const orig = (app as any)[m].bind(app);
     (app as any)[m] = function (path: any, ...handlers: any[]) {
@@ -19,14 +27,22 @@ export function createServer() {
         // validate path type
         if (typeof path === "string") {
           // reject bare absolute URLs
-          if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith(":/")) {
+          if (
+            path.startsWith("http://") ||
+            path.startsWith("https://") ||
+            path.startsWith(":/")
+          ) {
             console.error("Skipping unsafe route registration:", path);
             return app;
           }
         }
         return orig(path, ...handlers);
       } catch (err) {
-        console.error("Route registration failed for", path, err && err.stack ? err.stack : err);
+        console.error(
+          "Route registration failed for",
+          path,
+          err && err.stack ? err.stack : err,
+        );
         return app;
       }
     };
