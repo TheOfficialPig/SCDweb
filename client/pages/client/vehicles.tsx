@@ -1,4 +1,4 @@
-import Layout from "@/components/layout/Layout";
+import ClientDashboardLayout from "@/components/layout/ClientDashboardLayout";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
