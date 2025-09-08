@@ -3,6 +3,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
+import StaffDashboardLayout from "@/components/layout/StaffDashboardLayout";
+
 export default function Messaging() {
   const [msgs, setMsgs] = useState<{ id: string; body: string }[]>([]);
   const [text, setText] = useState("");
@@ -12,7 +14,7 @@ export default function Messaging() {
     setText("");
   }
   return (
-    <Layout>
+    <StaffDashboardLayout>
       <section className="container mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold">Messaging</h1>
         <p className="mt-2 text-muted-foreground">Staff ↔ Client and internal chat</p>
@@ -31,6 +33,6 @@ export default function Messaging() {
           </div>
         </div>
       </section>
-    </Layout>
+    </StaffDashboardLayout>
   );
 }
