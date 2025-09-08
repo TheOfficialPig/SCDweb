@@ -1,8 +1,10 @@
 import Layout from "@/components/layout/Layout";
 
+import StaffDashboardLayout from "@/components/layout/StaffDashboardLayout";
+
 export default function StaffManagement() {
   return (
-    <Layout>
+    <StaffDashboardLayout>
       <section className="container mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold">Staff Management</h1>
         <p className="mt-2 text-muted-foreground">Add/remove staff and assign roles</p>
@@ -11,6 +13,6 @@ export default function StaffManagement() {
           <div className="rounded-lg border p-6">No staff yet</div>
         </div>
       </section>
-    </Layout>
+    </StaffDashboardLayout>
   );
 }
