@@ -60,7 +60,9 @@ export default function StaffDashboardOverview() {
             <div className="rounded-lg border p-4">
               <div className="text-sm text-muted-foreground">Quick Actions</div>
               <div className="mt-3 grid gap-2">
-                <Link to="/staff/clients" className="rounded-md border px-3 py-2 text-sm">Add / Edit Client</Link>
+                <Link to="/staff/staff-management" className="rounded-md border px-3 py-2 text-sm">Add Staff</Link>
+                <Link to="/staff/clients?create=true" className="rounded-md border px-3 py-2 text-sm">Add Client Manually</Link>
+                <Link to="/staff/invoices?create=true" className="rounded-md border px-3 py-2 text-sm">Create Invoice</Link>
                 <Link to="/staff/jobs" className="rounded-md border px-3 py-2 text-sm">Create Job</Link>
               </div>
             </div>
