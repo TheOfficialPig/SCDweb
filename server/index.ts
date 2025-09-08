@@ -2,7 +2,6 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
-import { listProducts } from "./routes/products";
 import { createQuote, pingQuote } from "./routes/quote";
 import { createOrder } from "./routes/orders";
 import { listClients, listJobs, listOrders } from "./routes/admin";
