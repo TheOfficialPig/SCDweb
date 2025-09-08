@@ -58,7 +58,7 @@ export default function Services() {
             features={[
               "Vacuum & shampoo",
               "Leather clean & condition",
-              "Windows",
+              "Window Cleaning",
               "odor treatment",
             ]}
           />
@@ -67,10 +67,10 @@ export default function Services() {
             price="$49"
             img="https://images.unsplash.com/photo-1536520002442-39764a41e37c?q=80&w=1600&auto=format&fit=crop"
             features={[
-              "Foam wash & decon",
-              "Clay bar treatment",
-              "Machine polish",
-              "Sealant for 6+ months",
+              "Foam wash",
+              "Tire Wash",
+              "Window Cleaning",
+              "",
             ]}
           />
           <Package
@@ -79,9 +79,9 @@ export default function Services() {
             img="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop"
             features={[
               "Interior + Exterior",
-              "Engine bay detail",
+              "Upholstery",
               "Trim restoration",
-              "Glass coating",
+              "Dashboard Cleaning",
             ]}
           />
         </div>
