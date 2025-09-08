@@ -84,13 +84,13 @@ export function RequireAuth({ children, role }: { children: React.ReactNode; rol
       navigate("/login", { replace: true });
       return;
     }
-    if (role && user.role && user.role !== role) {
+    if (role && user.role && user.role !== role && !(user.role === "owner" && role === "staff")) {
       // redirect to appropriate home
       navigate(user.role === "owner" || user.role === "staff" ? "/staff" : "/dashboard", { replace: true });
     }
   }, [user, role, navigate]);
 
   if (!user) return null;
-  if (role && user.role !== role) return null;
+  if (role && user.role !== role && !(user.role === "owner" && role === "staff")) return null;
   return <>{children}</>;
 }
