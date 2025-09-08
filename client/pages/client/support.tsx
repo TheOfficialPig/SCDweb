@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import ClientDashboardLayout from "@/components/layout/ClientDashboardLayout";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -14,7 +15,7 @@ export default function SupportMessages() {
   }
 
   return (
-    <Layout>
+    <ClientDashboardLayout>
       <section className="container mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold">Support Messages</h1>
         <p className="mt-2 text-muted-foreground">Chat with our team or request service</p>
@@ -35,6 +36,6 @@ export default function SupportMessages() {
           </div>
         </div>
       </section>
-    </Layout>
+    </ClientDashboardLayout>
   );
 }
