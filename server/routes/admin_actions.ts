@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { db, createClient, createJob } from "../data/store";
+import { db, createClient, createJob } from "../data/store.js";
 import { Invoice, Staff } from "@shared/api";
 import crypto from "crypto";
 
