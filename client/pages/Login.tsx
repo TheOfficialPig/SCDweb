@@ -1,9 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -12,13 +12,15 @@ export default function Login() {
   const { login, register } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [searchParams] = useSearchParams();
 
   // read role from query param to preselect
-  try {
-    const params = new URLSearchParams(location.search);
-    const qr = params.get("role");
-    if (qr === "staff" || qr === "client") setRole(qr);
-  } catch {}
+  useEffect(() => {
+    try {
+      const qr = searchParams.get("role");
+      if (qr === "staff" || qr === "client") setRole(qr as "client" | "staff");
+    } catch {}
+  }, [searchParams]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
